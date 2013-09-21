@@ -21,7 +21,7 @@ static void sec_keyboard_power(struct work_struct *work)
 	}
 }
 
-static void forced_wakeup(struct sec_keyboard_drvdata *data)
+static void __attribute__((unused)) forced_wakeup(struct sec_keyboard_drvdata *data)
 {
 	input_report_key(data->input_dev,
 		KEY_WAKEUP, 1);
@@ -47,7 +47,7 @@ static void sec_keyboard_remapkey(struct work_struct *work)
 static void sec_keyboard_ack(struct work_struct *work)
 {
 	unsigned int ackcode = 0;
-	char *envp[3];
+	char __attribute__((unused)) *envp[3];
 	struct sec_keyboard_drvdata *data = container_of(work,
 			struct sec_keyboard_drvdata, ack_dwork.work);
 

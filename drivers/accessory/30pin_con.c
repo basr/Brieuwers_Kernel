@@ -579,9 +579,9 @@ static int acc_noti_univkbd_dock(struct sec_30pin_callbacks *cb,
 	struct acc_con_info *acc =
 		container_of(cb, struct acc_con_info, callbacks);
 
-	char *env_ptr;
-	char *stat_ptr;
-	char *envp[3];
+	char __attribute__((unused)) *env_ptr;
+	char __attribute__((unused)) *stat_ptr;
+	char __attribute__((unused)) *envp[3];
 
 	ACC_CONDEV_DBG("universal keyboard noti. callback 0x%x", code);
 
@@ -646,7 +646,7 @@ static int acc_con_probe(struct platform_device *pdev)
 {
 	struct acc_con_info *acc;
 	struct acc_con_platform_data *pdata = pdev->dev.platform_data;
-	struct regulator *vadc_regulator;
+	struct regulator __attribute__((unused)) *vadc_regulator;
 
 	int	retval;
 #ifdef CONFIG_MHL_SII9234
