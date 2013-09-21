@@ -182,7 +182,7 @@ static void exynos4_gpio_conpdn_reg(void)
 	__raw_writel(val, gpio_base + GPIO_PUD_PDN_OFFSET);
 }
 
-static void exynos4212_gpio_conpdn_reg(void)
+static void __attribute__((unused)) exynos4212_gpio_conpdn_reg(void)
 {
 	void __iomem *gpio_base = S5P_VA_GPIO;
 	unsigned int val;
