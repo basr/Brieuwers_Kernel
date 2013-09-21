@@ -693,7 +693,7 @@ static int wacom_resume_hw(void);
 static int wacom_early_suspend_hw(void);
 static int wacom_late_resume_hw(void);
 static int wacom_reset_hw(void);
-static void wacom_compulsory_flash_mode(bool en);
+void wacom_compulsory_flash_mode(bool en);
 static void wacom_register_callbacks(struct wacom_g5_callbacks *cb);
 
 static struct wacom_g5_platform_data wacom_platform_data = {

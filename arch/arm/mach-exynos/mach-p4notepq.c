@@ -775,7 +775,7 @@ static struct i2c_board_info i2c_devs13_emul[] __initdata = {
 	},
 };
 
-static void __init smb_gpio_init(void)
+static void __init __attribute__((unused)) smb_gpio_init(void)
 {
 	s3c_gpio_cfgpin(GPIO_TA_nCHG, S3C_GPIO_SFN(0xf));
 	/* external pull up */
@@ -1010,7 +1010,7 @@ struct platform_device s3c_device_i2c21 = {
 #endif
 
 /* I2C21 */
-static struct i2c_board_info i2c_devs21_emul[] __initdata = {
+static struct i2c_board_info __attribute__((unused)) i2c_devs21_emul[] __initdata = {
 #ifdef CONFIG_LEDS_AN30259A
 	{
 		I2C_BOARD_INFO("an30259a", 0x30),

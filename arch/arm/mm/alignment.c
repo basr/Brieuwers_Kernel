@@ -295,10 +295,10 @@ static void
 do_alignment_finish_ldst(unsigned long addr, unsigned long instr, struct pt_regs *regs, union offset_union offset)
 {
 	if (!LDST_U_BIT(instr))
-		offset.un = -offset.un;
+		offset.un += -offset.un;
 
 	if (!LDST_P_BIT(instr))
-		addr += offset.un;
+		addr = offset.un;
 
 	if (!LDST_P_BIT(instr) || LDST_W_BIT(instr))
 		regs->uregs[RN_BITS(instr)] = addr;
@@ -717,7 +717,7 @@ do_alignment_t32_to_handler(unsigned long *pinstr, struct pt_regs *regs,
 static int
 do_alignment(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
 {
-	union offset_union offset;
+	union offset_union __attribute__((unused)) offset;
 	unsigned long instr = 0, instrptr;
 	int (*handler)(unsigned long addr, unsigned long instr, struct pt_regs *regs);
 	unsigned int type;

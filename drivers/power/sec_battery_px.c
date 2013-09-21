@@ -95,17 +95,17 @@ enum abs_charging_property {
 #define USE_CALL			(0x1 << 0)
 #define USE_VIDEO			(0x1 << 1)
 #define USE_MUSIC			(0x1 << 2)
-#define USE_BROWSER		(0x1 << 3)
+#define USE_BROWSER			(0x1 << 3)
 #define USE_HOTSPOT			(0x1 << 4)
 #define USE_CAMERA			(0x1 << 5)
-#define USE_DATA_CALL		(0x1 << 6)
-#define USE_GPS			(0x1 << 7)
-#define USE_LTE			(0x1 << 8)
+#define USE_DATA_CALL			(0x1 << 6)
+#define USE_GPS				(0x1 << 7)
+#define USE_LTE				(0x1 << 8)
 #define USE_WIFI			(0x1 << 9)
 
 #define TOTAL_EVENT_TIME  (10 * 60)	/* 10 minites */
 
-static int is_charging_disabled;
+static int __attribute__((unused)) is_charging_disabled;
 
 static char *supply_list[] = {
 	"battery",
@@ -333,7 +333,7 @@ static void lpm_mode_check(struct battery_data *battery)
 #if defined(P4_CHARGING_FEATURE_01) || defined(P8_CHARGING_FEATURE_01)
 #define CHARGING_CURRENT_HIGH	1500
 #define CHARGING_CURRENT_LOW	CHARGING_CURRENT_USB
-static void sec_set_charging(struct battery_data *battery, int charger_type)
+static void __attribute__((unused)) sec_set_charging(struct battery_data *battery, int charger_type)
 {
 	switch (charger_type) {
 	case CHARGER_AC:
@@ -455,11 +455,11 @@ enum charger_type sec_get_dedicted_charger_type(struct battery_data *battery)
 	By default this something is considered to be USB.*/
 	enum charger_type result = CHARGER_USB;
 	int avg_vol = 0;
-	int adc_1, adc_2;
+	int __attribute__((unused)) adc_1, adc_2;
 	int vol_1, vol_2;
 	int accessory_line;
 #if defined(P4_CHARGING_FEATURE_01)
-	int online_val;
+	int __attribute__((unused)) online_val;
 	int i = 0;
 #endif
 	mutex_lock(&battery->work_lock);
@@ -705,7 +705,7 @@ static int is_over_abs_time(struct battery_data *battery)
 */
 static void fullcharge_discharge_comp(struct battery_data *battery)
 {
-	int fg_vcell = get_fuelgauge_value(FG_VOLTAGE);
+	int __attribute__((unused)) fg_vcell = get_fuelgauge_value(FG_VOLTAGE);
 
 	if (battery->info.batt_is_full) {
 		pr_info("%s: Resetting FULLCAP !!\n", __func__);
@@ -1097,7 +1097,7 @@ static void sec_set_chg_en(struct battery_data *battery, int enable)
 	pr_info("%s: External charger is %s", __func__, (enable ? "enabled." : \
 								"disabled."));
 #elif defined(P4_CHARGING_FEATURE_01)
-	int charger_enable_line = battery->pdata->charger.enable_line;
+	int __attribute__((unused))vcharger_enable_line = battery->pdata->charger.enable_line;
 
 	/* Disable internal charger(MAX8997) */
 	/* because of using external charger */
@@ -2500,7 +2500,7 @@ static void fullcharging_work_handler(struct work_struct *work)
 	struct battery_data *battery =
 		container_of(work, struct battery_data, fullcharging_work.work);
 	int check_charger_state = 1;
-	int fg_soc, fg_vfsoc;
+	int __attribute__((unused)) fg_soc, fg_vfsoc;
 	pr_debug("%s : nCHG intr!!, fullcharge_line=%d",
 		__func__,
 		gpio_get_value(battery->pdata->charger.fullcharge_line));
