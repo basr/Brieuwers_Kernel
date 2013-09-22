@@ -465,7 +465,7 @@ exit:
 static int rx_demux(struct link_device *ld, struct sk_buff *skb)
 {
 	struct io_device *iod = NULL;
-	char *link = ld->name;
+	char __attribute__((unused)) *link = ld->name;
 	u8 ch = skbpriv(skb)->ch_id;
 
 	if (unlikely(ch == 0)) {
@@ -709,7 +709,7 @@ err_range:
 static int rx_header_from_mem(struct link_device *ld, u8 *buff, unsigned rest,
 		struct sipc5_frame_data *frm)
 {
-	char *link = ld->name;
+	char __attribute__((unused)) *link = ld->name;
 	u8 cfg = buff[0];
 
 	/* Verify link layer header configuration */
@@ -937,7 +937,7 @@ static int rx_frame_from_skb(struct io_device *iod, struct link_device *ld,
 static int io_dev_recv_skb_from_link_dev(struct io_device *iod,
 		struct link_device *ld, struct sk_buff *skb)
 {
-	char *link = ld->name;
+	char __attribute__((unused)) *link = ld->name;
 	enum dev_format dev = iod->format;
 	int err;
 
