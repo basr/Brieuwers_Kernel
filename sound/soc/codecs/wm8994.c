@@ -132,7 +132,7 @@ static void wm8958_micd_set_rate(struct snd_soc_codec *codec)
 
 static int wm8994_readable(struct snd_soc_codec *codec, unsigned int reg)
 {
-	struct wm8994_priv *wm8994 = snd_soc_codec_get_drvdata(codec);
+	struct wm8994_priv __attribute__((unused)) *wm8994 = snd_soc_codec_get_drvdata(codec);
 	struct wm8994 *control = codec->control_data;
 
 	switch (reg) {
@@ -2321,7 +2321,7 @@ out:
 	return 0;
 }
 
-static irqreturn_t wm8994_fll_locked_irq(int irq, void *data)
+static irqreturn_t __attribute__((unused)) wm8994_fll_locked_irq(int irq, void *data)
 {
 	struct completion *completion = data;
 
@@ -3776,7 +3776,7 @@ out:
 	return IRQ_HANDLED;
 }
 
-static irqreturn_t wm8994_fifo_error(int irq, void *data)
+static irqreturn_t __attribute__((unused)) wm8994_fifo_error(int irq, void *data)
 {
 	struct snd_soc_codec *codec = data;
 
@@ -3785,7 +3785,7 @@ static irqreturn_t wm8994_fifo_error(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
-static irqreturn_t wm8994_temp_warn(int irq, void *data)
+static irqreturn_t __attribute__((unused)) wm8994_temp_warn(int irq, void *data)
 {
 	struct snd_soc_codec *codec = data;
 
@@ -3794,7 +3794,7 @@ static irqreturn_t wm8994_temp_warn(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
-static irqreturn_t wm8994_temp_shut(int irq, void *data)
+static irqreturn_t __attribute__((unused)) wm8994_temp_shut(int irq, void *data)
 {
 	struct snd_soc_codec *codec = data;
 

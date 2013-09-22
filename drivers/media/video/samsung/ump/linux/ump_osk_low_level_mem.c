@@ -258,7 +258,7 @@ static u32 _ump_osk_virt_to_phys_end(ump_dd_mem * mem, u32 start, u32 address, i
 	return _MALI_OSK_ERR_FAULT;
 }
 
-static void _ump_osk_msync_with_virt(ump_dd_mem * mem, ump_uk_msync_op op, u32 start, u32 address, u32 size)
+static void __attribute__((unused)) _ump_osk_msync_with_virt(ump_dd_mem * mem, ump_uk_msync_op op, u32 start, u32 address, u32 size)
 {
 	int start_index, end_index;
 	u32 start_p, end_p;
@@ -309,9 +309,9 @@ static void _ump_osk_msync_with_virt(ump_dd_mem * mem, ump_uk_msync_op op, u32 s
 
 void _ump_osk_msync( ump_dd_mem * mem, ump_uk_msync_op op, u32 start, u32 address, u32 size)
 {
-	int i;
-	u32 start_p, end_p;
-	ump_dd_physical_block *block;
+	int __attribute__((unused)) i;
+	u32 __attribute__((unused)) start_p, end_p;
+	ump_dd_physical_block __attribute__((unused)) *block;
 
 	DBG_MSG(3,
 		("Flushing nr of blocks: %u. First: paddr: 0x%08x vaddr: 0x%08x size:%dB\n",
