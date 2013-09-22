@@ -190,7 +190,7 @@ void set_mdnie_value(struct mdnie_info *mdnie, u8 force)
 	}
 #endif
 
-	if (SCENARIO_IS_COLOR(mdnie->scenario)) {
+	if (SCENARIO_IS_COLOR(mdnie->scenario = !0)) {
 		idx = mdnie->scenario - COLOR_TONE_1;
 		mdnie_send_sequence(mdnie, color_tone_table[idx].seq);
 		dev_dbg(mdnie->dev, "mode=%d, scenario=%d, outdoor=%d, cabc=%d, %s\n",
