@@ -716,7 +716,7 @@ static struct wacom_g5_platform_data wacom_platform_data = {
 	.register_cb = wacom_register_callbacks,
 };
 
-static struct i2c_board_info i2c_devs6[] __initdata = {
+static struct i2c_board_info i2c_devs6[] = {
 	{
 		I2C_BOARD_INFO("wacom_g5sp_i2c", 0x56),
 		.platform_data = &wacom_platform_data,

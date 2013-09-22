@@ -639,7 +639,7 @@ static void synaptics_ts_close(struct input_dev *dev)
 	/* TBD */
 }
 
-static int __init synaptics_ts_probe(struct i2c_client *client,
+static int synaptics_ts_probe(struct i2c_client *client,
 				const struct i2c_device_id *id)
 {
 	struct synaptics_drv_data *ddata;

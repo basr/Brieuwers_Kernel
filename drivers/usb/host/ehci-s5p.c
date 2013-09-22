@@ -747,7 +747,7 @@ fail_hcd:
 	return err;
 }
 
-static int __devexit s5p_ehci_remove(struct platform_device *pdev)
+static int __devinit s5p_ehci_remove(struct platform_device *pdev)
 {
 	struct s5p_ehci_platdata *pdata = pdev->dev.platform_data;
 	struct s5p_ehci_hcd *s5p_ehci = platform_get_drvdata(pdev);

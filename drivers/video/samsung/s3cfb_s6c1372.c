@@ -120,7 +120,7 @@ void s5c1372_ldi_disable(void)
 #endif
 }
 
-static int __init s6c1372_probe(struct platform_device *pdev)
+static int s6c1372_probe(struct platform_device *pdev)
 {
 	struct s6c1372_lcd *lcd;
 	int ret = 0;

@@ -156,7 +156,7 @@ static void cma_phys_release(struct dma_buf *dmabuf)
 	}
 }
 
-static struct dma_buf_ops cma_phys_dmabuf_ops = {
+static struct dma_buf_ops __attribute__((unused)) cma_phys_dmabuf_ops = {
 	.attach		= cma_phys_attach,
 	.detach		= cma_phys_detach,
 	.map_dma_buf	= cma_phys_map_dmabuf,

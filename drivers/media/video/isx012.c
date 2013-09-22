@@ -651,7 +651,7 @@ static int isx012_i2c_write_block(struct v4l2_subdev *sd, u8 *buf, u32 size)
 u8 isx012_burstmode_buf[BURST_MODE_BUFFER_MAX_SIZE];
 
 /* PX: */
-static int isx012_burst_write_regs(struct v4l2_subdev *sd,
+static int __attribute__((unused)) isx012_burst_write_regs(struct v4l2_subdev *sd,
 			const u32 list[], u32 size, char *name)
 {
 	struct i2c_client *client = v4l2_get_subdevdata(sd);
@@ -1756,7 +1756,7 @@ static int isx012_set_awb_lock(struct v4l2_subdev *sd, s32 lock, bool force)
 }
 
 /* PX: Set AE, AWB Lock */
-static int isx012_set_lock(struct v4l2_subdev *sd, s32 lock, bool force)
+static int __attribute__((unused)) isx012_set_lock(struct v4l2_subdev *sd, s32 lock, bool force)
 {
 #if 0
 	int err = -EIO;
