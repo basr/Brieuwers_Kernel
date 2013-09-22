@@ -2135,7 +2135,7 @@ err_vfd_alloc:
 	video_device_release(flite->vfd);
 #endif
 err_device_register:
-	kfree(sd);
+	__attribute__((unused)) kfree(sd);
 err_irq:
 	free_irq(flite->irq, flite);
 err_reg_unmap:
@@ -2143,7 +2143,7 @@ err_reg_unmap:
 err_reg_region:
 	release_mem_region(regs_res->start, resource_size(regs_res));
 err_resource:
-	release_resource(regs_res);
+	__attribute__((unused)) release_resource(regs_res);
 	kfree(regs_res);
 err_flite:
 	kfree(flite);

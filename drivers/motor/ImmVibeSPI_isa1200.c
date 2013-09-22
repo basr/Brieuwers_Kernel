@@ -477,9 +477,9 @@ IMMVIBESPIAPI VibeStatus ImmVibeSPI_ForceOut_Terminate(void)
 IMMVIBESPIAPI VibeStatus ImmVibeSPI_ForceOut_SetSamples(VibeUInt8 nActuatorIndex, VibeUInt16 nOutputSignalBitDepth, VibeUInt16 nBufferSizeInBytes, VibeInt8* pForceOutputBuffer)
 {
     VibeInt8 nForce;
-    int cnt = 0;
-    unsigned char I2C_data[2];
-    int ret = VIBE_S_SUCCESS;
+    int __attribute__((unused)) cnt = 0;
+    unsigned char __attribute__((unused)) I2C_data[2];
+    int __attribute__((unused)) ret = VIBE_S_SUCCESS;
 
     switch (nOutputSignalBitDepth)
     {
@@ -547,7 +547,7 @@ IMMVIBESPIAPI VibeStatus ImmVibeSPI_ForceOut_SetSamples(VibeUInt8 nActuatorIndex
 /*
 ** Called to set force output frequency parameters
 */
-IMMVIBESPIAPI VibeStatus ImmVibeSPI_ForceOut_SetFrequency(VibeUInt8 nActuatorIndex, VibeUInt16 nFrequencyParameterID, VibeUInt32 nFrequencyParameterValue)
+IMMVIBESPIAPI VibeStatus __attribute__((unused)) ImmVibeSPI_ForceOut_SetFrequency(VibeUInt8 nActuatorIndex, VibeUInt16 nFrequencyParameterID, VibeUInt32 nFrequencyParameterValue)
 {
     return VIBE_S_SUCCESS;
 }

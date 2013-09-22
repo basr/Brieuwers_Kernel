@@ -717,7 +717,7 @@ static ssize_t mtpg_write(struct file *fp, const char __user *buf,
 	return r;
 }
 
-static void interrupt_complete(struct usb_ep *ep, struct usb_request *req)
+static void __attribute__((unused)) interrupt_complete(struct usb_ep *ep, struct usb_request *req)
 {
 	pr_debug("Finished Writing Interrupt Data\n");
 }
@@ -768,7 +768,7 @@ static void read_send_work(struct work_struct *work)
 {
 	struct mtpg_dev	*dev = container_of(work, struct mtpg_dev,
 							read_send_work);
-	struct usb_composite_dev *cdev = dev->cdev;
+	struct usb_composite_dev __attribute__((unused)) *cdev = dev->cdev;
 	struct usb_request *req = 0;
 	struct usb_container_header *hdr;
 	struct file *file;

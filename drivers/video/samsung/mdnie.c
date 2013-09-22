@@ -682,7 +682,7 @@ static ssize_t negative_show(struct device *dev,
 {
 	struct mdnie_info *mdnie = dev_get_drvdata(dev);
 	char *pos = buf;
-	u32 i;
+	u32 __attribute__((unused)) i;
 
 	pos += sprintf(pos, "%d\n", mdnie->negative);
 
@@ -764,7 +764,7 @@ void mdnie_early_suspend(struct early_suspend *h)
 
 void mdnie_late_resume(struct early_suspend *h)
 {
-	u32 i;
+	u32 __attribute__((unused)) i;
 	struct mdnie_info *mdnie = container_of(h, struct mdnie_info, early_suspend);
 	struct lcd_platform_data *pd = NULL;
 

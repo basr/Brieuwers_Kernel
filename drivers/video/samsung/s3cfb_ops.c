@@ -1569,10 +1569,10 @@ static int s3c_fb_set_win_buffer(struct s3cfb_global *fbdev,
 		struct s3c_reg_data *regs)
 {
 	struct s3cfb_window *win = fb->par;
-	struct fb_fix_screeninfo prev_fix = fb->fix;
-	struct fb_var_screeninfo prev_var = fb->var;
+	struct fb_fix_screeninfo __attribute__((unused)) prev_fix = fb->fix;
+	struct fb_var_screeninfo __attribute__((unused)) prev_var = fb->var;
 	unsigned short win_no = win->id;
-	int ret;
+	int __attribute__((unused)) ret;
 	size_t window_size;
 	u32 alpha, size;
 
@@ -1748,7 +1748,7 @@ int s3cfb_ioctl(struct fb_info *fb, unsigned int cmd, unsigned long arg)
 	struct fb_var_screeninfo *var = &fb->var;
 	struct s3cfb_window *win = fb->par;
 	struct s3cfb_global *fbdev = get_fimd_global(win->id);
-	struct s3cfb_lcd *lcd = fbdev->lcd;
+	struct s3cfb_lcd __attribute__((unused)) *lcd = fbdev->lcd;
 	void *argp = (void *)arg;
 	int ret = 0;
 #if defined(CONFIG_CPU_EXYNOS4210)
